@@ -1,0 +1,22 @@
+name: Java tests
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: backend/pom.xml
+      - name: Run engine smoke checks
+        run: ../scripts/check-engine.sh
+      - name: Run unit tests without a database
+        run: bash mvnw -B test

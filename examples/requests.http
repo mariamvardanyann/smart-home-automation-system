@@ -1,0 +1,45 @@
+# Use with IntelliJ HTTP Client / VS Code REST Client.
+# Set host and apiKey locally; NEVER commit a populated secret.
+@host = http://localhost:8080
+@apiKey = CHANGE_ME_IN_LOCAL_COPY
+
+### Health check
+GET {{host}}/hello
+
+### List rules
+GET {{host}}/rules
+X-API-Key: {{apiKey}}
+
+### Devices
+GET {{host}}/devices
+X-API-Key: {{apiKey}}
+
+### Preview (replace ID with real Sensor ID)
+POST {{host}}/rules/preview
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{"sensorId": 1, "value": 1}
+
+### Trigger once (replace ID with real Sensor ID)
+POST {{host}}/events
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{"sensorId": 1, "value": 1}
+
+### Process queued events
+POST {{host}}/events/process
+X-API-Key: {{apiKey}}
+
+### Rule execution summary
+GET {{host}}/summary
+X-API-Key: {{apiKey}}
+
+### Simulated execution log
+GET {{host}}/logs
+X-API-Key: {{apiKey}}
+
+### Durable SQL execution log
+GET {{host}}/logs/details
+X-API-Key: {{apiKey}}

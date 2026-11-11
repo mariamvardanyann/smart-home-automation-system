@@ -1,0 +1,34 @@
+# Compiled output
+**/target/
+**/build/
+*.class
+*.jar
+# IDE/editor
+**/.idea/
+**/.vscode/
+*.iml
+# Secrets, local settings and environment
+.env
+.env.*
+!.env.example
+*.local.properties
+application-local.properties
+*.p12
+*.pem
+*.key
+# OS and transient data
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+# Database dumps (may contain personal information)
+*.bak
+*.bacpac
+*.mdf
+*.ldf
+
+# Visual Studio temporary files
+.vs/
+**/.vs/
+*.suo
+*.user
